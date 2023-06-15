@@ -1,6 +1,5 @@
 print("Hello test!!")
-
 print("2nd Chance!!")
-
 print("LG GO")
-print("4th go")
+print("4th go?")
+print("Here we go!!")
