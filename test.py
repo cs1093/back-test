@@ -1,6 +1,2 @@
-print("Hello test!!")
-print("2nd Chance!!")
-print("LG GO")
-print("4th go?")
-print("Here we go!!")
-print("Please Do it!!!!!!")
+print('Return to ECR')
+print("8th")
