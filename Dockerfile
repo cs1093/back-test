@@ -1,2 +1,2 @@
 FROM adoptopenjdk/openjdk11
-COPY /build/libs/build/libs/*.jar /app/
+COPY /build/libs/*.jar /app/
