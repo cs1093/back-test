@@ -59,7 +59,7 @@ pipeline {
             // dockerImage = docker.build imagename
             script {
               sh"""
-                docker build ${imagename}
+                docker build . -t test:10.0
               """
             }
           }
