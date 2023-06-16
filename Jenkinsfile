@@ -36,6 +36,7 @@ pipeline {
             echo 'Bulid Gradle'
             dir ('.'){
                 sh """
+                chmod +x ./gradlew
                 ./gradlew clean build
                 """
             }
