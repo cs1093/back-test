@@ -59,7 +59,7 @@ pipeline {
             // dockerImage = docker.build imagename
             script {
               sh"""
-                docker build . -t test:10.0
+                docker build . -t 806308213817.dkr.ecr.ap-northeast-2.amazonaws.com/test:1.0
               """
             }
           }
