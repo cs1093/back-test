@@ -4,8 +4,8 @@ pipeline {
     environment {
         imagename = 'test'
         regiGit = 'https://github.com/cs1093/back-test.git'
-        gitCredentialsId = "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"
-        awsCredentialsId = AWS-Credential
+        gitCredentialsId = credentials('gitToken')
+        awsCredentialsId = credentials('AWS-Credential')
         awsRegion = 'ap-northeast-2'
         ecrRepo = '806308213817.dkr.ecr.ap-northeast-2.amazonaws.com'
     }
