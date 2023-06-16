@@ -2,13 +2,12 @@ pipeline {
     agent any
 
     environment {
-        imagename = ''
-        regiGit = ''
-        gitToken = ''
-        regiECR = ''
+        imagename = 'test'
+        regiGit = 'https://github.com/cs1093/back-test.git'
+        gitCredentialsId = test
         awsCredentialsId = AWS-Credential
         awsRegion = 'ap-northeast-2'
-        ecrRepo = '806308213817.dkr.ecr.ap-northeast-2.amazonaws.com/test'
+        ecrRepo = '806308213817.dkr.ecr.ap-northeast-2.amazonaws.com'
     }
 
     stages {
@@ -16,9 +15,9 @@ pipeline {
         stage('Prepare') {
           steps {
             echo 'Clonning Repository'
-            git url: regi_git, 
+            git url: regiGit, 
               branch: 'main',
-              credentialsId: ''  // 생성한 github access token credentail id = 변수처리
+              credentialsId: gitCredentialsId  // 생성한 github access token credentail id = 변수처리
             }
             post {
              success { 
@@ -79,7 +78,7 @@ pipeline {
                 // ECR 관련 환경 변수 설정
                 withAWS(credentials: awsCredentialsId, region: awsRegion) {
                     // ECR 리포지토리 URI 설정
-                    def ecrRepo = ecrRepo
+                    def ecrRepo = ecrRepo + '/' + imagename
                     // Docker 이미지를 ECR에 푸시
                     sh """
                     docker tag ${imagename} ${ecrRepo}:${BUILD_NUMBER}
