@@ -5,7 +5,7 @@ pipeline {
         imagename = 'test'
         regiGit = 'https://github.com/cs1093/back-test.git'
         gitCredentialsId = credentials('gitToken')
-        awsCredentialsId = credentials('AWS-Credential')
+        awsCredentialsId = credentials('aws')
         awsRegion = 'ap-northeast-2'
         ecrRepo = '806308213817.dkr.ecr.ap-northeast-2.amazonaws.com'
     }
@@ -59,7 +59,7 @@ pipeline {
             // dockerImage = docker.build imagename
             script {
               sh"""
-                docker build . -t 806308213817.dkr.ecr.ap-northeast-2.amazonaws.com/test:1.0
+                docker.build ${imagename}
               """
             }
           }
